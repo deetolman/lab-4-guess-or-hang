@@ -11,6 +11,10 @@ function guessWord(){
     var copy = words.slice();
 console.log(copy);
 }
+function guessLetter(){
+    var letter = document.getElementById("guess-letter")
+
+}
   //  function getRandomWord() {
     
 
