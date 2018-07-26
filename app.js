@@ -1,16 +1,30 @@
 /* globals words */
-/* exported loadWord */
-function loadWord (){
-    function getRandomInt(max, min) {
-        return Math.floor(Math.random() * (max - min)) + min; 
+/* exported getWordIndex */
+/* exported getWord */
+var copy = words.slice();
+var chosenWord = getWord(copy);
+
+function getWordIndex (max){
+    return Math.floor(Math.random() * max); 
         
-      }
+    }
 console.log(getRandomInt(0, words.length));
+
+function getWord(){
+    var index = getWordIndex(copy.length);
+    var word = copy[index];
+    //return word.splice();
+    console.log(word);
 }
-function guessWord(){
-    var copy = words.slice();
-console.log(copy);
+
+
+    //console.log(copy);
+    console.log(chosenWord);
+
+function createWordArray(){
+
 }
+
 function guessLetter(){
     var letter = document.getElementById("guess-letter")
 
