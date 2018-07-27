@@ -1,6 +1,8 @@
 /* globals words */
 /* exported getWordIndex */
 /* exported getWord */
+/* exported testing */
+
 var copy = words.slice();
 var chosenWord = getWord(copy);
 
@@ -13,10 +15,21 @@ function getWord(){
     var index = getWordIndex(copy.length);
     var word = copy[index];
     var letters = word.split('');
-    console.log(letters); 
-    //return word.splice();
-    //console.log(word);
+    console.log(letters);
+    var html = ''; 
+    
+        for(var i = 0; i < letters.length; i++){
+                html += `${letters[i]}`;
+            }
+    console.log(html);
 }
+// function testing(){
+//     for(var i = 0; i < letters.length; i++){
+//         var html = '';
+//         html = `${letters[i]}`;
+//         console.log(html);
+//     }
+// }
 
 
     //console.log(copy);
