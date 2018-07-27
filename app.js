@@ -2,34 +2,45 @@
 /* exported getWordIndex */
 /* exported getWord */
 /* exported testing */
+/* exported displaySpaces */
 
 var copy = words.slice();
-var chosenWord = getWord(copy);
+var chosenWord = displaySpaces(copy);
 
 function getWordIndex (max){
     return Math.floor(Math.random() * max); 
         
 }
 
-function getWord(){
+function displaySpaces(){
     var index = getWordIndex(copy.length);
     var word = copy[index];
     var letters = word.split('');
     console.log(letters);
     var html = ''; 
-    
         for(var i = 0; i < letters.length; i++){
-                html += `${letters[i]}`;
+                html += `<label id = "${letters[i]}"> _ </label>`;
             }
     console.log(html);
+   var displayWord = document.getElementById ('hidden-letters');
+   displayWord.innerHTML = html;
 }
-// function testing(){
-//     for(var i = 0; i < letters.length; i++){
-//         var html = '';
-//         html = `${letters[i]}`;
-//         console.log(html);
-//     }
+
+//function getWord(){
+//     var index = getWordIndex(copy.length);
+//     var word = copy[index];
+//     var letters = word.split('');
+//     console.log(letters);
+//     var html = ''; 
+    
+//         for(var i = 0; i < letters.length; i++){
+//                 html += `<label id = "${letters[i]}">${letters[i]}</label>`;
+//             }
+//     console.log(html);
+//    var displayWord = document.getElementById ('hidden-letters');
+//    displayWord.innerHTML = html;
 // }
+
 
 
     //console.log(copy);
@@ -42,11 +53,7 @@ function createWordArray(){
 function guessLetter(){
     var letter = document.getElementById("letter-guessed");
     console.log(letter.value);
-    //var sanitizedInput = letter.value.charCodeAt(0);
-    //console.log(sanitizedInput);
 
-    return false;
 }
   //  function getRandomWord() {
     
-
