@@ -12,6 +12,8 @@ function getWordIndex (max){
 function getWord(){
     var index = getWordIndex(copy.length);
     var word = copy[index];
+    var letters = word.split('');
+    console.log(letters); 
     //return word.splice();
     //console.log(word);
 }
@@ -27,8 +29,8 @@ function createWordArray(){
 function guessLetter(){
     var letter = document.getElementById("letter-guessed");
     console.log(letter.value);
-    var sanitizedInput = letter.value.charCodeAt(0);
-    console.log(sanitizedInput);
+    //var sanitizedInput = letter.value.charCodeAt(0);
+    //console.log(sanitizedInput);
 
     return false;
 }
