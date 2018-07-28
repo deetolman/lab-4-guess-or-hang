@@ -40,13 +40,22 @@ function guessLetter(){
     var userMessage = document.getElementById("message");
     var displayWord = document.getElementById('hidden-letters');
     correctGuesses = false;
-    
+    var correctCounter = 0;
+
     for(var j = 0; j < letters.length; j++) {
         var displayCharacters = document.getElementById(j);
         if(userInput === letters[j]){
-            userMessage.innerText = "Good job! That letter was a match!";
+            correctCounter++;
             displayCharacters.innerHTML = letters[j];
+            if(correctCounter === letters.length){
+                userMessage.innerText = 'Congratulations! You\'ve escaped the hangman\'s noose!';
+                console.log(correctCounter);//win condition
+            }
+            else{
+                userMessage.innerText = "Good job! That letter was a match!";
+            }
             correctGuesses = true;
+            console.log(correctCounter);
         }
         console.log(correctGuesses);
         // else if(userInput !== letters[j]) {
@@ -59,7 +68,9 @@ function guessLetter(){
         var wrongLetter = document.getElementById("wrong-list");
         wrongLetter.innerText += ' ' + userInput;
         guessesLeft--;
-        console.log(guessesLeft); 
+        console.log(guessesLeft);
+            //if statement for losing endgame situation
+            //replace userMessage.innerText with "you lose blah blah"
     }
 
 
