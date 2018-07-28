@@ -12,8 +12,9 @@ function getWordIndex (max){
         
 }
 
-var guessButton = document.getElementById("guess-button");
-var startButton = document.getElementById("start-button");
+var guessButton = document.getElementById('guess-button');
+var startButton = document.getElementById('start-button');
+var guessesNum  = document.getElementById('guesses-left');
 var index = getWordIndex(copy.length);
 var word = copy[index];
 var letters = word.split('');
@@ -39,9 +40,9 @@ function displaySpaces(){
 }
 
 function guessLetter(){
-    var userInput = document.getElementById("letter-guessed").value;
+    var userInput = document.getElementById('letter-guessed').value;
     console.log(userInput);
-    var userMessage = document.getElementById("message");
+    var userMessage = document.getElementById('message');
     var displayWord = document.getElementById('hidden-letters');
     correctGuesses = false;
     
@@ -52,11 +53,12 @@ function guessLetter(){
             correctCounter++;
             correctGuesses = true;
             displayCharacters.innerHTML = letters[j];
-            userMessage.innerText = "Good job! That letter was a match!";
+            userMessage.innerText = 'Good job! That letter was a match!';
             console.log(correctCounter);
         }
 
     }
+
     if(correctCounter === letters.length){
         userMessage.innerText = 'Congratulations! You\'ve escaped the hangman\'s noose!';
         guessButton.disabled = true;
@@ -65,8 +67,8 @@ function guessLetter(){
 
     if(correctGuesses === false){
         console.log('User made an incorrect guess!');
-        userMessage.innerText = "Sorry, not a match!";
-        var wrongLetter = document.getElementById("wrong-list");
+        userMessage.innerText = 'Sorry, not a match!';
+        var wrongLetter = document.getElementById('wrong-list');
         wrongLetter.innerText += ' ' + userInput;
         guessesLeft--;
         console.log(guessesLeft);
@@ -74,8 +76,10 @@ function guessLetter(){
             //replace userMessage.innerText with "you lose blah blah"
     }
 
+    guessesNum.innerText = guessesLeft;
+    
     if(guessesLeft === 0) {
-        userMessage.innerText = "You ran out of guesses... You lose!"
+        userMessage.innerText = 'You ran out of guesses... You lose!';
         guessButton.disabled = true;
     }
 
