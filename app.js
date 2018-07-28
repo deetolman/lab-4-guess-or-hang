@@ -47,6 +47,23 @@ function guessLetter(){
     var displayWord = document.getElementById('hidden-letters');
     correctGuesses = false;
     
+    function isLetter(str) {
+        //Regular expression that tests the beginning, then the end of input for A-Z & a-z
+        var testInput = /^[A-Za-z]+$/;
+        if(str.match(testInput)) {
+            return true;
+        }
+        else {
+            return false;
+        }
+    }
+
+    if(isLetter(userInput) === false) {
+        console.log("woof woof");
+        userMessage.innerText = 'Hey! You need to enter a LETTER!';
+        return false;
+    }
+
     for(var k = 0; k < wrongLetters.length; k++) {
         if(userInput === wrongLetters[k]) {
             console.log("ding dong");
