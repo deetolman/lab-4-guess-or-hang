@@ -9,7 +9,7 @@
 <body>
     <div>
         <p id="gallows">
-           <button onclick="return displaySpaces()">Start Game</button>
+           <button id="start-button" onclick="return displaySpaces()">Start Game</button>
         </p>
     </div>
     <div>
@@ -19,9 +19,9 @@
             <div id="wrong-letters">
                 <p><label>Wrong letters: </label><label id="wrong-list"></label></p>
             </div>
-            <button onclick="return guessLetter()">Guess a Letter</button>
+            <button id="guess-button" onclick="return guessLetter()">Guess a Letter</button>
             <label>
-                <input id="letter-guessed">
+                <input id="letter-guessed" required>
             </label>
             <div>
                 <p><label id="message">YOU SUCK</label></p>

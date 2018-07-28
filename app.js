@@ -12,6 +12,8 @@ function getWordIndex (max){
         
 }
 
+var guessButton = document.getElementById("guess-button");
+var startButton = document.getElementById("start-button");
 var index = getWordIndex(copy.length);
 var word = copy[index];
 var letters = word.split('');
@@ -31,6 +33,8 @@ function displaySpaces(){
    
     var displayWord = document.getElementById ('hidden-letters');
     displayWord.innerHTML = html;
+    //startButton.disabled = true;
+
     return false;
 }
 
@@ -55,6 +59,7 @@ function guessLetter(){
     }
     if(correctCounter === letters.length){
         userMessage.innerText = 'Congratulations! You\'ve escaped the hangman\'s noose!';
+        guessButton.disabled = true;
         console.log(correctCounter);//win condition
     }
 
@@ -71,6 +76,7 @@ function guessLetter(){
 
     if(guessesLeft === 0) {
         userMessage.innerText = "You ran out of guesses... You lose!"
+        guessButton.disabled = true;
     }
 
 
