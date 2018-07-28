@@ -15,6 +15,8 @@ function getWordIndex (max){
 var index = getWordIndex(copy.length);
 var word = copy[index];
 var letters = word.split('');
+var guessesLeft = 6;
+var correctGuesses = 0;
 
 function displaySpaces(){
     // var index = getWordIndex(copy.length);
@@ -23,7 +25,7 @@ function displaySpaces(){
     console.log(letters);
     var html = ''; 
     for(var i = 0; i < letters.length; i++){
-            html += `<label id = "${letters[i]}"> _ </label>`;
+            html += `<label id = ${i}> _ </label>`;
         }
     console.log(html);
    
@@ -37,20 +39,29 @@ function guessLetter(){
     console.log(userInput);
     var userMessage = document.getElementById("message");
     var displayWord = document.getElementById('hidden-letters');
-    console.log(displayCharacters);
-    //ar uppercase = letter.toUpperCase();
+    correctGuesses = false;
+    
     for(var j = 0; j < letters.length; j++) {
-        var displayCharacters = document.getElementById(letters[j]);
-        console.log("Habla Espanol", userInput, letters[j]);
+        var displayCharacters = document.getElementById(j);
         if(userInput === letters[j]){
-            console.log("Hello");
-            userMessage.innerText = "Good job! That letter was a match!"
-            
+            userMessage.innerText = "Good job! That letter was a match!";
             displayCharacters.innerHTML = letters[j];
+            correctGuesses = true;
         }
-        //else {
-
-        
+        console.log(correctGuesses);
+        // else if(userInput !== letters[j]) {
+        //     guess = false;
+        // }
     }
+    if(correctGuesses === false){
+        console.log('hit this code');
+        userMessage.innerText = "Sorry, not a match!";
+        var wrongLetter = document.getElementById("wrong-list");
+        wrongLetter.innerText += ' ' + userInput;
+        guessesLeft--;
+        console.log(guessesLeft); 
+    }
+
+
     return false;
 }
