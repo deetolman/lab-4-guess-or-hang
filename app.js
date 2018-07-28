@@ -12,10 +12,14 @@ function getWordIndex (max){
         
 }
 
+var index = getWordIndex(copy.length);
+var word = copy[index];
+var letters = word.split('');
+
 function displaySpaces(){
-    var index = getWordIndex(copy.length);
-    var word = copy[index];
-    var letters = word.split('');
+    // var index = getWordIndex(copy.length);
+    // var word = copy[index];
+    // var letters = word.split('');
     console.log(letters);
     var html = ''; 
     for(var i = 0; i < letters.length; i++){
@@ -28,48 +32,20 @@ function displaySpaces(){
    return false;
 }
 
-//function getWord(){
-//     var index = getWordIndex(copy.length);
-//     var word = copy[index];
-//     var letters = word.split('');
-//     console.log(letters);
-//     var html = ''; 
-    
-//         for(var i = 0; i < letters.length; i++){
-//                 html += `<label id = "${letters[i]}">${letters[i]}</label>`;
-//             }
-//     console.log(html);
-//    var displayWord = document.getElementById ('hidden-letters');
-//    displayWord.innerHTML = html;
-// }
-
-
-
-    //console.log(copy);
-    //console.log(chosenWord);
-
-function createWordArray(){
-
-}
-
 function guessLetter(){
-    
-    var index = getWordIndex(copy.length);
-    var word = copy[index];
-    var letters = word.split('');
-    var letter = document.getElementById("letter-guessed").value;
-    console.log(letter);
+    var userInput = document.getElementById("letter-guessed").value;
+    console.log(userInput);
     var userMessage = document.getElementById("message");
+    var displayWord = document.getElementById('hidden-letters');
+    console.log(displayCharacters);
     //ar uppercase = letter.toUpperCase();
     for(var j = 0; j < letters.length; j++) {
-        console.log("Habla Espanol", letter, letters[j]);
-        var displayWord = document.getElementById('hidden-letters');
-        var html = '';
-        displayWord.innerHTML = html;
-        if(letter === letters[j]){
+        var displayCharacters = document.getElementById(letters[j]);
+        console.log("Habla Espanol", userInput, letters[j]);
+        if(userInput === letters[j]){
             console.log("Hello");
-            var displayCharacters = document.getElementById(letters[j]);
             userMessage.innerText = "Good job! That letter was a match!"
+            
             displayCharacters.innerHTML = letters[j];
         }
         //else {
@@ -78,5 +54,3 @@ function guessLetter(){
     }
     return false;
 }
-  //  function getRandomWord() {
-    
