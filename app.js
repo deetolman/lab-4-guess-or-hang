@@ -49,7 +49,7 @@ function guessLetter(){
     
     function isLetter(str) {
         //Regular expression that tests the beginning, then the end of input for A-Z & a-z
-        var testInput = /^[A-Za-z]+$/;
+        var testInput = /^[A-Za-z]+$/; //I might want to re-use this for other input later
         if(str.match(testInput)) {
             return true;
         }
@@ -80,6 +80,7 @@ function guessLetter(){
             correctGuesses = true;
             displayCharacters.innerHTML = letters[j];
             userMessage.innerText = 'Good job! That letter was a match!';
+            wrongLetters.push(userInput);
             console.log(correctCounter);
         }
 
