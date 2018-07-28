@@ -20,6 +20,7 @@ var word = copy[index];
 var letters = word.split('');
 var guessesLeft = 6;
 var correctGuesses = 0;
+var wrongLetters = [];
 
 function displaySpaces(){
     // var index = getWordIndex(copy.length);
@@ -46,8 +47,16 @@ function guessLetter(){
     var displayWord = document.getElementById('hidden-letters');
     correctGuesses = false;
     
-
+    for(var k = 0; k < wrongLetters.length; k++) {
+        if(userInput === wrongLetters[k]) {
+            console.log("ding dong");
+            userMessage.innerText = 'Hey! You already tried that! Pick another letter...';
+            return false;
+        }
+    }
+    
     for(var j = 0; j < letters.length; j++) {
+        
         var displayCharacters = document.getElementById(j);
         if(userInput === letters[j]){
             correctCounter++;
@@ -68,16 +77,18 @@ function guessLetter(){
     if(correctGuesses === false){
         console.log('User made an incorrect guess!');
         userMessage.innerText = 'Sorry, not a match!';
-        var wrongLetter = document.getElementById('wrong-list');
-        wrongLetter.innerText += ' ' + userInput;
+        var badGuesses = document.getElementById('wrong-list');
+        badGuesses.innerText += ' ' + userInput;
         guessesLeft--;
+        wrongLetters.push(userInput);
+        console.log(wrongLetters);
         console.log(guessesLeft);
             //if statement for losing endgame situation
             //replace userMessage.innerText with "you lose blah blah"
     }
 
     guessesNum.innerText = guessesLeft;
-    
+
     if(guessesLeft === 0) {
         userMessage.innerText = 'You ran out of guesses... You lose!';
         guessButton.disabled = true;
