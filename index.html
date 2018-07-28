@@ -16,10 +16,16 @@
         <form id="guess-letter">
             <div id="hidden-letters"> 
             </div>
-            <button onclick="guessLetter()">Guess a Letter</button>
+            <div id="wrong-letters">
+                <p><label>Wrong letters: </label><label id="wrong-list"></label></p>
+            </div>
+            <button onclick="return guessLetter()">Guess a Letter</button>
             <label>
                 <input id="letter-guessed">
             </label>
+            <div>
+                <p><label id="message">YOU SUCK</label></p>
+            </div>
         </form>
     </div>
     <div>

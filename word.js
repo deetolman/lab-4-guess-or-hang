@@ -1,9 +1,14 @@
 /* exported words */
 var words = [
-        "watermelon", 
-        "aardvark",
-        "zither",
-        "quark",
-        "bedazzled",
-        "banana"
+        "WATERMELON", 
+        "AARDVARK",
+        "ZITHER",
+        "QUARK",
+        "BEDAZZLED",
+        "BANANA",
+        "REINDEER",
+        "TOBOGGAN",
+        "BROCCOLI",
+
+
 ];
